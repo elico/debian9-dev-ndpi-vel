@@ -53,3 +53,4 @@ set +e
 #patch -p0 < /build/ipt-makefile.patch && \
 #patch -p0 < /build/src-makefile.patch && \
 
+set +x
