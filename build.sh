@@ -39,14 +39,14 @@ make modules_install && \
 echo $?
 mkdir -p /build/destdir/usr/lib/x86_64-linux-gnu/xtables && \
 cp /usr/lib/x86_64-linux-gnu/xtables/libxt_NDPI.so /build/destdir/usr/lib/x86_64-linux-gnu/xtables/ && \
-mkdir -p /build/destdir/usr/lib/modules/$KERNEL_VERSION/extra/ && \
-cp /build/nDPI/ndpi-netfilter/src/xt_ndpi.ko /build/destdir/usr/lib/modules/$KERNEL_VERSION/extra/xt_ndpi.ko && \
-cp /build/nDPI/ndpi-netfilter/src/xt_ndpi.ko /build/destdir/usr/lib/modules/$KERNEL_VERSION/extra/xt_ndpi.ko-non-stripped && \
+mkdir -p /build/destdir/lib/modules/$KERNEL_VERSION/ && \
+cp /build/nDPI/ndpi-netfilter/src/xt_ndpi.ko /build/destdir/lib/modules/$KERNEL_VERSION/xt_ndpi.ko && \
+cp /build/nDPI/ndpi-netfilter/src/xt_ndpi.ko /build/destdir/lib/modules/$KERNEL_VERSION/xt_ndpi.ko-non-stripped && \
 cd /build/destdir/usr/lib/x86_64-linux-gnu/xtables/ && \
 ln -s libxt_NDPI.so libxt_ndpi.so && \
 echo $?
 
-strip --strip-debug /build/destdir/usr/lib/modules/$KERNEL_VERSION/extra/xt_ndpi.ko
+strip --strip-debug /build/destdir/lib/modules/$KERNEL_VERSION/xt_ndpi.ko
 
 set +x
 set +e
